@@ -1,0 +1,32 @@
+{
+  "name": "roocode-bridge",
+  "displayName": "Roo Code Bridge",
+  "description": "HTTP bridge to control Roo Code from external scripts",
+  "version": "0.1.0",
+  "engines": { "vscode": "^1.80.0" },
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Roo Code Bridge",
+      "properties": {
+        "iagent.telegramToken": {
+          "type": "string",
+          "description": "Telegram bot token"
+        },
+        "iagent.telegramChatId": {
+          "type": "string",
+          "description": "Telegram chat ID"
+        },
+        "iagent.llamaUrl": {
+          "type": "string",
+          "default": "http://192.168.1.50:8080",
+          "description": "Llama server URL"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
