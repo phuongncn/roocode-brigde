@@ -3,8 +3,14 @@ const fs = require('fs');
 const { handleMcp } = require('./mcp-handler');
 const { writeStatus, writeResult, RESULT_FILE, STATUS_FILE } = require('./state');
 const { buildPrompt } = require('./prompt');
+const { watchForDone } = require('./file-watcher');
 
 const PORT = 3457;
+
+function getWorkspaceRoot(vscode) {
+    const folders = vscode.workspace.workspaceFolders;
+    return folders && folders.length > 0 ? folders[0].uri.fsPath : null;
+}
 
 function createServer(vscode) {
   const server = http.createServer(async (req, res) => {
@@ -25,6 +31,11 @@ function createServer(vscode) {
 
                 if (fs.existsSync(RESULT_FILE)) fs.unlinkSync(RESULT_FILE);
                 writeStatus('running', 'Task received');
+
+                const workspaceRoot = getWorkspaceRoot(vscode);
+                if (workspaceRoot) {
+                    watchForDone(task, workspaceRoot);
+                }
 
                 const prompt = buildPrompt(task);
                 await vscode.commands.executeCommand('roo-cline.newTask', { prompt });

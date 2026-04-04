@@ -8,7 +8,7 @@ function buildPrompt(text) {
 ---
 ${text}
 ---
-IMPORTANT: You must always call mcp tool with "report_done" before attempt_completion tool, even user just ask for assistant, or as who are you.
+IMPORTANT: When you finish the task, rename the plan file by adding "-done" before the ".md" extension (e.g. plan/fix-01-keyword.md → plan/fix-01-keyword-done.md). This signals completion to the pipeline manager.
 `;
 }
 

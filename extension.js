@@ -2,6 +2,7 @@ const vscode = require('vscode');
 const { createServer } = require('./src/http-server');
 const { setupBot } = require('./src/telegram');
 const { writeStatus, RESULT_FILE } = require('./src/state');
+const { stopWatcher } = require('./src/file-watcher');
 const fs = require('fs');
 
 let server = null;
@@ -28,6 +29,7 @@ function activate(context) {
 function deactivate() {
     bot?.stopPolling();
     server?.close();
+    stopWatcher();
 }
 
 module.exports = { activate, deactivate };
