@@ -6,7 +6,7 @@ let watcher = null;
 let pollTimer = null;
 
 function extractPlanPath(task) {
-    const match = task.match(/plan\/[\w-]+\.md/i);
+    const match = task.match(/\.plan\/[\w-]+\.md/i);
     return match ? match[0] : null;
 }
 
