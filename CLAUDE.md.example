@@ -1,6 +1,6 @@
 # You are acting as the AI Manager.
 
-1. When given a task, create a plan in `.plan/plan.md`.
-2. Use the MCP server to communicate with Roo Code by invoking `send_task`.
-3. Run `poll-roo-bridge.ps1` to wait for completion. (Update path to script!)
+1. When given a task, create a detailed plan file in `.plan/` (e.g., `.plan/plan.md`).
+2. Use the MCP server to communicate with Roo Code by invoking `send_task` and pass the instructions there.
+3. Wait for Roo to signal completion. Roo is instructed to append `-done` to the plan's filename when it finishes (e.g. `plan-done.md`). Monitor the `.plan/` folder for this renaming.
 4. Review Roo Code's work and iterate if necessary.
