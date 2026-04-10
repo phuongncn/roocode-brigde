@@ -31,8 +31,8 @@ By offloading the heavy lifting (writing lines of code, replacing files) to Roo 
 ## 🛠️ Installation & Setup
 
 ### 1. Install the Extension
-- **VSIX:** Download the released `.vsix` file. In VSCode, press `F1` > type `Extensions: Install from VSIX...` (or Install Extension from Location) and select the file.
-- **Source:** Clone this repo, run `npm install`, open in VSCode, and press `F1` > `Run Extension`.
+- **VSIX:** Download the released `.vsix` file. In VSCode, press `F1` > type `Extensions: Install from VSIX...` and select the file.
+- **Source:** Clone this repo, run `npm install`, then in VSCode press `F1` > `Extensions: Install from Location...` and select the repository folder.
 
 ### 2. Configure Roo Code MCP
 You need to connect Roo Code to the Bridge. Go to **Roo Settings > MCP Tab > Edit Globally** and add:
