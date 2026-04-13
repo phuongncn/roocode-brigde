@@ -28,22 +28,15 @@ curl -s -X POST http://127.0.0.1:3457/task \
 
 ### Step 2 — Poll status
 
-Estimate expected duration:
-- **Simple**: translation, content-only edits, 1-2 file minor fixes → 300s
-- **Medium**: 3-5 files with logic changes → 500s
-- **Complex**: 6+ files, refactor, architecture changes → 1200s
-
 Run the poll script in **one single tool call** (choose based on your OS):
 
 ```bash
 # Windows
-powershell -ExecutionPolicy Bypass -File "C:\path\to\poll-roo-bridge.ps1" -ExpectedSeconds 1500
+powershell -ExecutionPolicy Bypass -File "C:\path\to\poll-roo-bridge.ps1" -ExpectedSeconds 900
 
 # Mac / Linux
-bash "/path/to/poll-roo-bridge.sh" 1500 10
+bash "/path/to/poll-roo-bridge.sh" 900 10
 ```
-
-Adjust the seconds (1500 in examples) per estimate above. The script calculates interval automatically.
 
 **CRITICAL: MUST use the provided polling script — do NOT write custom bash loops.**
 

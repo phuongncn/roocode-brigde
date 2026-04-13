@@ -8,7 +8,7 @@ function buildPrompt(text) {
 ---
 ${text}
 ---
-IMPORTANT: When you finish the task, create a new file with the same name as the plan file but with "-done" inserted before ".md" (e.g. plan/fix-01-keyword.md → create plan/fix-01-keyword-done.md with content "done"). Do NOT rename or delete the original plan file. This signals completion to the pipeline manager.
+IMPORTANT: When you finish the task, create a new file with the same name as the plan file but with "-done" inserted before ".md" (e.g. .plan/fix-01-keyword.md → create .plan/fix-01-keyword-done.md with content "done"). Do NOT rename or delete the original plan file. This signals completion to the pipeline manager.
 `;
 }
 
